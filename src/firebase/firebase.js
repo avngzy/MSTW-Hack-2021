@@ -14,6 +14,7 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 
 // utils
+// export const dba = firestore()
 const db = getFirestore();
 
 // // collection references

@@ -2,7 +2,18 @@
 <template>
     <v-container class="container">
         <div class="about">
-            <h1>Shop name here</h1>
+            <v-row>
+            <v-col>
+                <p> </p>
+            </v-col>
+             <v-col>
+                 <h1>{{this.smeData.name}}</h1>
+            </v-col>
+             <v-col>
+                 <p> </p>
+            </v-col>
+            </v-row>
+            
         </div>
         <v-row>
             <v-col>
@@ -12,8 +23,8 @@
                 lazy-src="https://picsum.photos/id/11/10/6"
                 max-height="300"
                 max-width="800"
-                src="https://picsum.photos/id/11/500/300"
-                ></v-img>
+                :src="this.smeData.imageURL"
+                @click="showSME"></v-img>
             </v-col>
             <v-col>
             </v-col>
@@ -21,7 +32,7 @@
         </v-row>
           
         <v-row>
-              Shop Name
+            <p></p> {{this.smeData.location}}
         </v-row>
         <v-row>
             contact
@@ -36,33 +47,6 @@
         </v-row>
     </v-container>
 
-    <!-- <v-card class="mx-auto smeCard" max-width="375" @click="showSME">
-      <v-img
-        class="white--text align-end"
-        height="150px"
-        :src="this.cardData.imageURL"
-      >
-        <v-card-title
-          ><v-chip class="mx-2 px-2" color="primary">
-            {{ this.cardData.type }}
-          </v-chip>
-          <v-chip class="mx-2 px-2" color="secondary">
-            {{ this.cardData.secondaryType }}
-          </v-chip>
-        </v-card-title>
-      </v-img>
-
-      <v-card-title>{{ this.cardData.name }}</v-card-title>
-
-      <v-tooltip top>
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn icon class="test" v-bind="attrs" v-on="on">
-            <v-icon>mdi-gift</v-icon>
-          </v-btn>
-        </template>
-        <span>Donate</span>
-      </v-tooltip>
-    </v-card> -->
 </template>
 
 <script>
@@ -70,10 +54,12 @@ export default {
   name: "SME",
   methods: {
       showSME: function() {
-        console.log("here")
-      this.$router.push("/sme");
+        console.log(this.smeData)
     }
   },
+  props: {
+      smeData: Object,
+  }
 
 };
 </script>
@@ -87,5 +73,9 @@ export default {
 
 .smeCard {
   margin-bottom: 15px;
+}
+
+h1 {
+    text-align:center;
 }
 </style>
