@@ -1,11 +1,14 @@
 <template>
-    <div>
-        You got to the user page. good for you. {{userId}}
-    </div>
+  <v-container class="container">
+    You got to the user page. good for you. {{ userId }}
+    <LoginForm />
+  </v-container>
 </template>
 
 <script>
+import LoginForm from "../components/LoginForm.vue"
 export default {
-    props: ["userId"]
-}
+  components: {LoginForm},
+  props: ["userId"],
+};
 </script>

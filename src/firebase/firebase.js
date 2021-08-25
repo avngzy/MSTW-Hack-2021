@@ -3,7 +3,12 @@ import { collection, addDoc, getFirestore } from "firebase/firestore";
 
 // firebase init - add your own config here
 const firebaseConfig = {
-  // hidden
+  apiKey: process.env.VUE_APP_API_KEY,
+  authDomain: process.env.VUE_APP_B,
+  projectId: process.env.VUE_APP_,
+  storageBucket: process.env.VUE_APP_,
+  messagingSenderId: process.env.VUE_APP_,
+  appId: process.env.VUE_APP_,
 };
 initializeApp(firebaseConfig);
 

@@ -2,9 +2,19 @@
   <v-container class="container">
     <SearchBar @on-search="handleFilter" />
     <div class="scrollView">
-      <div v-for="(cardData, val) in filteredCardsData" :key="val">
-        <SMECard :cardData="cardData" />
-      </div>
+      <v-row>
+        <v-col
+          xs="12"
+          md="6"
+          lg="4"
+          xl="3"
+          v-for="(cardData, val) in filteredCardsData"
+          :key="val"
+          class="flex"
+        >
+          <SMECard :cardData="cardData" />
+        </v-col>
+      </v-row>
     </div>
   </v-container>
 </template>
@@ -79,5 +89,10 @@ export default {
 
 .scrollView::-webkit-scrollbar {
   display: none;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
 }
 </style>
