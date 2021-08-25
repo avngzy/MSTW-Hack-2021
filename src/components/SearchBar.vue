@@ -1,12 +1,13 @@
 <template>
-  <v-card color="red lighten-2" dark class="searchBar">
+  <v-card color="red lighten-2" dark class="searchbar">
     <v-card-text>
       <v-autocomplete
-        v-model="model"
+        v-model="search"
         :items="states"
         persistent-hint
         prepend-icon="mdi-city"
         label="Where do you live?"
+        @change="emitSearch()"
       >
         <template v-slot:append-outer>
           <v-slide-x-reverse-transition mode="out-in">
@@ -14,82 +15,62 @@
           </v-slide-x-reverse-transition>
         </template>
       </v-autocomplete>
-      <v-btn>F&B</v-btn>
-      <v-btn>Services</v-btn>
-      <v-btn>Shops</v-btn>
+      <v-btn-toggle
+        v-model="toggledBtns"
+        tile
+        color="secondary"
+        group
+        multiple
+        @change="emitSearch()"
+      >
+        <v-btn value="F&B">
+          F&B
+        </v-btn>
+        <v-btn value="Services">
+          Services
+        </v-btn>
+        <v-btn value="Shop">
+          Shops
+        </v-btn>
+      </v-btn-toggle>
     </v-card-text>
-      <v-btn elevation="2" fab color="primary" class="fabBtn">
-        <v-icon>mdi-plus</v-icon>
-      </v-btn>
+    <AddAPlaceForm />
   </v-card>
 </template>
 
 <script>
+import AddAPlaceForm from "../components/AddPlaceForm.vue";
+
 export default {
   name: "SearchBar",
+  components: { AddAPlaceForm },
+  methods: {
+    emitSearch() {
+      this.$emit("on-search", {
+        search: this.search,
+        toggledBtns: this.toggledBtns,
+      });
+    },
+  },
   data() {
     return {
-      model: null,
+      search: "",
+      toggledBtns: [],
       states: [
-        "Alabama",
-        "Alaska",
-        "American Samoa",
-        "Arizona",
-        "Arkansas",
-        "California",
-        "Colorado",
-        "Connecticut",
-        "Delaware",
-        "District of Columbia",
-        "Federated States of Micronesia",
-        "Florida",
-        "Georgia",
-        "Guam",
-        "Hawaii",
-        "Idaho",
-        "Illinois",
-        "Indiana",
-        "Iowa",
-        "Kansas",
-        "Kentucky",
-        "Louisiana",
-        "Maine",
-        "Marshall Islands",
-        "Maryland",
-        "Massachusetts",
-        "Michigan",
-        "Minnesota",
-        "Mississippi",
-        "Missouri",
-        "Montana",
-        "Nebraska",
-        "Nevada",
-        "New Hampshire",
-        "New Jersey",
-        "New Mexico",
-        "New York",
-        "North Carolina",
-        "North Dakota",
-        "Northern Mariana Islands",
-        "Ohio",
-        "Oklahoma",
-        "Oregon",
-        "Palau",
-        "Pennsylvania",
-        "Puerto Rico",
-        "Rhode Island",
-        "South Carolina",
-        "South Dakota",
-        "Tennessee",
-        "Texas",
-        "Utah",
-        "Vermont",
-        "Virgin Island",
-        "Virginia",
-        "Washington",
-        "West Virginia",
-        "Wisconsin",
-        "Wyoming",
+        "Selangor",
+        "Pahang",
+        "Kuala Lumpur",
+        "Penang",
+        "Kelantan",
+        "Sabah",
+        "Sarawak",
+        "Terengganu",
+        "Perak",
+        "Perlis",
+        "Johor",
+        "Negeri Sembilan",
+        "Kedah",
+        "Malacca",
       ],
     };
   },
@@ -97,9 +78,7 @@ export default {
 </script>
 
 <style scoped>
-.fabBtn {
-  position: absolute;
-  bottom: 10px;
-  right: 15px;
+.searchbar {
+  height: 16vh;
 }
 </style>
