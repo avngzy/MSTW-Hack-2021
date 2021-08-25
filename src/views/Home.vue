@@ -3,7 +3,7 @@
     <SearchBar @on-search="handleFilter" />
     <div class="scrollView">
       <div v-for="(cardData, val) in filteredCardsData" :key="val">
-        <SMECard :cardData="cardData" />
+        <SMECard :cardData="cardData" :index="val" />
       </div>
     </div>
   </v-container>

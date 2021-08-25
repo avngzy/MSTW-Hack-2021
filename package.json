@@ -1,7 +1,6 @@
 {
   "name": "test",
   "version": "0.1.0",
-  "type": "module",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -10,10 +9,11 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "firebase": "9.0.0-beta.7",
+    "firebase": "8.10.0",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
     "vue2-google-maps": "^0.10.7",
+    "vuefire": "^2.2.5",
     "vuetify": "^2.4.0"
   },
   "devDependencies": {

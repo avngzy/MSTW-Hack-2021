@@ -3,7 +3,13 @@ import { collection, addDoc, getFirestore } from "firebase/firestore";
 
 // firebase init - add your own config here
 const firebaseConfig = {
-  // hidden
+  apiKey: process.env.VUE_APP_API_KEY,
+  authDomain: process.env.VUE_APP_AUTH_DOMAIN,
+  databaseURL: "https://grounds-keeper-default-rtdb.firebaseio.com",
+  projectId: process.env.VUE_APP_PROJECT_ID,
+  storageBucket: process.env.VUE_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.VUE_APP_MSG_SENDER_ID,
+  appId: process.env.VUE_APP_ID
 };
 initializeApp(firebaseConfig);
 
