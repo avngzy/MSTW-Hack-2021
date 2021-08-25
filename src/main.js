@@ -10,7 +10,7 @@ Vue.config.productionTip = false;
 Vue.use(firestorePlugin);
 Vue.use(VueGoogleMaps, {
   load: {
-    key: "AIzaSyB60f_kvHt8EJZgYa3lxkGMWQrXLxGk2jk",
+    key: "AIzaSyCLdsgGTdt-iCzbM0bIJUmnUt69TKxWpQw",
     libraries: "places",
   },
 });

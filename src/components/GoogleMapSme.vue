@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <h2>Vue Js Search and Add Marker</h2>
+      <h2>Where it's located</h2>
 
       <label>
         <gmap-autocomplete @place_changed="initMarker"></gmap-autocomplete>
