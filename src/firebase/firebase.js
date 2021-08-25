@@ -58,6 +58,30 @@ export const addPlaceToFirebase = async ({
   }
 };
 
+export const addMarkerToFirebase = async ({ lat, lng }) => {
+  try {
+    const docRef = await addDoc(collection(db, "Markers"), {
+      lat,
+      lng,
+    });
+    console.log("Document written with ID: ", docRef.id);
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
+};
+
+export const addSmeMarkerToFirebase = async ({ lat, lng }) => {
+  try {
+    const docRef = await addDoc(collection(db, "SmeMarkers"), {
+      lat,
+      lng,
+    });
+    console.log("Document written with ID: ", docRef.id);
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
+};
+
 // const cardsData = [
 //   {
 //     name: "Mamak",
