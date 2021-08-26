@@ -78,4 +78,8 @@ export default {
   height: 87vh;
   overflow-y: scroll;
 }
+
+.screenContainer::-webkit-scrollbar {
+  display: none;
+}
 </style>
