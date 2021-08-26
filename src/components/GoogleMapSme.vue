@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <div>
+  <div class="mapContainer">
+    <br>
+    <div class="mapContainer">
       <h2>Where it's located</h2>
 
       <label>
@@ -11,7 +12,6 @@
       <br/>
  
     </div>
-    <br>
     <gmap-map
         :zoom="14"    
         :center="center"
@@ -73,3 +73,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.mapContainer {
+  width: 95%;
+}
+</style>
