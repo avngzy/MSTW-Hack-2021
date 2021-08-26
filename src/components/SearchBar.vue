@@ -1,5 +1,5 @@
 <template>
-  <v-card color="red lighten-2" dark class="searchbar">
+  <v-card color="blue" dark class="searchbar">
     <v-card-text>
       <v-autocomplete
         v-model="search"
