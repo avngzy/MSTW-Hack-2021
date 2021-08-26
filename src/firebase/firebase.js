@@ -1,5 +1,8 @@
 import { initializeApp } from "firebase/app";
 import { collection, addDoc, getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+import { GoogleAuthProvider } from "firebase/auth";
+import { signInWithPopup } from "firebase/auth";
 
 // firebase init - add your own config here
 const firebaseConfig = {
@@ -12,25 +15,31 @@ const firebaseConfig = {
 };
 initializeApp(firebaseConfig);
 
-// utils
-// export const dba = firestore()
-const db = getFirestore();
 
-// // collection references
-// const usersCollection = db.collection("users");
-// const postsCollection = db.collection("posts");
-// const commentsCollection = db.collection("comments");
-// const likesCollection = db.collection("likes");
+const db = getFirestore();
+const auth = getAuth();
+const provider =  new GoogleAuthProvider();
+
+export const tr = signInWithPopup(auth, provider)
+  .then((result) => {
+    console.log(result.user)
+    return result.user;
+  });
 
 // export utils/refs
 export {
   db,
-  // auth,
+  auth,
+  provider,
   // usersCollection,
   // postsCollection,
   // commentsCollection,
   // likesCollection,
 };
+
+
+
+// export { signInWithPopup};
 
 export const addPlaceToFirebase = async ({
   name,
@@ -115,3 +124,7 @@ export const addSmeMarkerToFirebase = async ({ lat, lng }) => {
 // ];
 
 // cardsData.forEach((data) => addPlaceToFirebase(data));
+
+
+
+

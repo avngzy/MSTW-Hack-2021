@@ -1,11 +1,22 @@
+
 <template>
-    <div>
-        You got to the user page. good for you. {{userId}}
-    </div>
+    <v-container>
+        <v-row>
+            <v-col>
+                <UserPage />
+            </v-col>
+        </v-row>
+    </v-container>
+        
 </template>
 
 <script>
+import UserPage from "../components/UserPage.vue";
 export default {
-    props: ["userId"]
+    props: ["userId"],
+
+    components: {
+        UserPage,
+    }
 }
 </script>

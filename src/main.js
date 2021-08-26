@@ -5,6 +5,7 @@ import vuetify from "./plugins/vuetify";
 import * as VueGoogleMaps from "vue2-google-maps";
 import { firestorePlugin } from 'vuefire' // Added to make vuefire work
 import VuetifyGoogleAutocomplete from "vuetify-google-autocomplete";
+// import { auth } from "./firebase/firebase.js" // for authentication
 
 Vue.config.productionTip = false;
 Vue.use(firestorePlugin);
