@@ -14,7 +14,11 @@
         <v-icon>mdi-magnify</v-icon>
       </template>
     </vuetify-google-autocomplete>
+    <v-container v-if="loading">
+      <v-progress-circular indeterminate color="primary"></v-progress-circular>
+    </v-container>
     <gmap-map
+      v-else
       :zoom="14"
       :center="center"
       class="map"
@@ -71,6 +75,7 @@ export default {
   components: { VuetifyGoogleAutocomplete },
   data() {
     return {
+      loading: true,
       center: {
         lat: 39.7837304,
         lng: -100.4458825,
@@ -93,6 +98,7 @@ export default {
   async created() {
     this.locationMarkers = await this.fetchMarkers("Markers");
     this.smeLocationMarkers = await this.fetchMarkers("SmeMarkers");
+    this.loading = false;
   },
 
   mounted() {

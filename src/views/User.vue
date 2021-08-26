@@ -1,15 +1,15 @@
 <template>
   <v-container class="container">
-    <!-- <LoginForm /> -->
+    <LoginForm />
     <UserPage />
   </v-container>
 </template>
 
 <script>
-// import LoginForm from "../components/LoginForm.vue";
+import LoginForm from "../components/LoginForm.vue";
 import UserPage from "../components/UserPage.vue";
 export default {
-  components: {   UserPage },
+  components: { LoginForm, UserPage },
   props: ["userId"],
 };
 </script>
