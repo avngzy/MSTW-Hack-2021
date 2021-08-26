@@ -1,5 +1,5 @@
 <template>
-  <v-card :loading="loading" class="mx-auto my-12" max-width="374">
+  <v-card :loading="loading" class="mx-auto my-12 form" max-width="374">
     <template slot="progress">
       <v-progress-linear
         color="deep-purple"
@@ -8,7 +8,7 @@
       ></v-progress-linear>
     </template>
 
-    <v-card-title>Sign Up</v-card-title>
+    <v-card-title><h2>Sign Up</h2></v-card-title>
 
     <v-form ref="form" v-model="valid" lazy-validation>
       <v-text-field
@@ -26,40 +26,42 @@
         required
       ></v-text-field>
 
-      <v-select
-        v-model="select"
-        :items="items"
-        :rules="[(v) => !!v || 'Item is required']"
-        label="Item"
+      <v-text-field
+        v-model="password"
+        type="password"
+        label="Password"
         required
-      ></v-select>
+      ></v-text-field>
 
-      <v-checkbox
-        v-model="checkbox"
-        :rules="[(v) => !!v || 'You must agree to continue!']"
-        label="Do you agree?"
-        required
-      ></v-checkbox>
+      <v-card-subtitle>
+        Already Have An Account?
+      </v-card-subtitle>
 
       <v-card-actions>
-        <v-btn
-          :disabled="!valid"
-          color="success"
-          class="mr-4"
-          @click="validate"
-        >
-          Validate
-        </v-btn>
-
-        <v-btn color="error" class="mr-4" @click="reset">
-          Reset Form
-        </v-btn>
+        <v-row>
+          <v-col cols="8">
+            <v-btn color="error" class="mr-4" @click="reset">
+              <v-icon>
+                mdi-cancel
+              </v-icon>
+            </v-btn>
+          </v-col>
+          <v-col cols="4">
+            <v-btn
+              :disabled="!valid"
+              color="success"
+              class="mr-4"
+              @click="validate"
+            >
+              <v-icon>
+                mdi-check-circle
+              </v-icon>
+            </v-btn>
+          </v-col>
+        </v-row>
       </v-card-actions>
     </v-form>
-
     <v-divider class="mx-4"></v-divider>
-
-    <v-card-title>Tonight's availability</v-card-title>
   </v-card>
 </template>
 
@@ -73,6 +75,7 @@ export default {
       (v) => (v && v.length <= 10) || "Name must be less than 10 characters",
     ],
     email: "",
+    password: "",
     emailRules: [
       (v) => !!v || "E-mail is required",
       (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
@@ -102,3 +105,11 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.form {
+  border: solid red;
+  width: 85%;
+  padding: 2rem;
+}
+</style>

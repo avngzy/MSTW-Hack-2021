@@ -8,10 +8,10 @@ import { signInWithPopup } from "firebase/auth";
 const firebaseConfig = {
   apiKey: process.env.VUE_APP_API_KEY,
   authDomain: process.env.VUE_APP_B,
-  projectId: process.env.VUE_APP_,
-  storageBucket: process.env.VUE_APP_,
-  messagingSenderId: process.env.VUE_APP_,
-  appId: process.env.VUE_APP_,
+  projectId: process.env.VUE_APP_C,
+  storageBucket: process.env.VUE_APP_D,
+  messagingSenderId: process.env.VUE_APP_E,
+  appId: process.env.VUE_APP_F,
 };
 initializeApp(firebaseConfig);
 

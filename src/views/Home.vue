@@ -2,11 +2,6 @@
   <v-container class="container">
     <SearchBar @on-search="handleFilter" />
     <div class="scrollView">
-<<<<<<< HEAD
-      <div v-for="(cardData, val) in filteredCardsData" :key="val">
-        <SMECard :cardData="cardData" :index="val" />
-      </div>
-=======
       <v-row>
         <v-col
           xs="12"
@@ -20,7 +15,6 @@
           <SMECard :cardData="cardData" />
         </v-col>
       </v-row>
->>>>>>> 00b6d04a87e96d842e59b5ef8909e9619eca71bd
     </div>
   </v-container>
 </template>

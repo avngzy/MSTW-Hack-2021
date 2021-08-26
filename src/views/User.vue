@@ -1,15 +1,25 @@
-
 <template>
   <v-container class="container">
-    You got to the user page. good for you. {{ userId }}
-    <LoginForm />
+    <!-- <LoginForm /> -->
+    <UserPage />
   </v-container>
 </template>
 
 <script>
-import LoginForm from "../components/LoginForm.vue"
+// import LoginForm from "../components/LoginForm.vue";
+import UserPage from "../components/UserPage.vue";
 export default {
-  components: {LoginForm},
+  components: {   UserPage },
   props: ["userId"],
 };
 </script>
+
+<style scoped>
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border: solid red;
+}
+</style>

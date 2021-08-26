@@ -52,7 +52,7 @@
       color="blue"
       @click="addSmeLocationMarker()"
     >
-      <v-icon>mdi-virus</v-icon>
+      <v-icon>mdi-basket</v-icon>
     </v-btn>
   </v-container>
 </template>
