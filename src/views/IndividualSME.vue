@@ -1,26 +1,23 @@
 <template>
-  <div>
+  <v-container class="screenContainer">
     <SME :smeData="smeData[this.$route.params.id]" />
     <GoogleMapSme />
-
-  </div>
- 
+  </v-container>
 </template>
-
 
 <script>
 import SME from "../components/SME.vue";
-import GoogleMapSme from "../components/GoogleMapSme.vue"
-import {collection, onSnapshot } from "firebase/firestore"
+import GoogleMapSme from "../components/GoogleMapSme.vue";
+import { collection, onSnapshot } from "firebase/firestore";
 // import {collection } from "firebase/firestore"
 // import { doc, getDoc } from "firebase/firestore";
 // import { doc } from "firebase/firestore";
-import {db} from "../firebase/firebase"
+import { db } from "../firebase/firebase";
 export default {
-  name:"IndividualSME",
+  name: "IndividualSME",
   components: {
     SME,
-    GoogleMapSme
+    GoogleMapSme,
   },
   data: function() {
     return {
@@ -30,28 +27,18 @@ export default {
     };
   },
 
-  
-
-
-
-  created(){
-
-
-      this.unsub = onSnapshot(collection(db, "SMEs"), (querySnapshot) => {
+  created() {
+    this.unsub = onSnapshot(collection(db, "SMEs"), (querySnapshot) => {
       querySnapshot.forEach((doc) => {
-        console.log(doc.data())
         this.smeData.push(doc.data());
-        console.log(this.smeData)
       });
       this.testf = this.smeData;
-      
     });
     // this.unsub = doc(collection(db, "SMEs", this.$route.params.id), (querySnapshot) => {
     //   querySnapshot.forEach((doc) => {
     //     this.smeData.push(doc.data());
     //   });
     // });
-
 
     // async() => {
     //     const docRef = doc(db, "SMEs", this.$route.params.id);
@@ -65,25 +52,30 @@ export default {
     //     }
     //   }
   },
-  unmounted(){
-    this.unsub()
+  unmounted() {
+    this.unsub();
   },
 
-
   methods: {
-    test(){
-      var i
-      for(i = 0; i < this.testf.length; i++){
-        console.log(this.testf[i])
+    test() {
+      var i;
+      for (i = 0; i < this.testf.length; i++) {
+        console.log(this.testf[i]);
       }
-      console.log(this.$route.params.id)
       // console.log(this.testf)
       // console.log(this.smeData)
-    }
-
-
-  }
-
-}
-
+    },
+  },
+};
 </script>
+
+<style scoped>
+.screenContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 87vh;
+  overflow-y: scroll;
+}
+</style>

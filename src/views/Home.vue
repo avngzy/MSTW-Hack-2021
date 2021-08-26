@@ -12,7 +12,7 @@
           :key="val"
           class="flex"
         >
-          <SMECard :cardData="cardData" />
+          <SMECard :cardData="cardData" :index="val" />
         </v-col>
       </v-row>
     </div>
